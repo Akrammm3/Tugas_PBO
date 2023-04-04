@@ -1,0 +1,23 @@
+class Produk:
+    def __init__(self, nama, harga):
+        self.nama = nama
+        self.harga = harga
+        
+class KeranjangBelanja:
+    def __init__(self):
+        self.daftar_produk = []
+        
+    def tambah_produk(self, produk):
+        self.daftar_produk.append(produk)
+        
+    def total_harga_produk(self):
+        total = sum(p.harga for p in self.daftar_produk)
+        return total
+
+keranjang = KeranjangBelanja()
+
+keranjang.tambah_produk(Produk("Buku", 5000))
+keranjang.tambah_produk(Produk("Pensil", 1000))
+keranjang.tambah_produk(Produk("Penghapus", 2000))
+
+print(keranjang.total_harga_produk()) # Output: 8000
